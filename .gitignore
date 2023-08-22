@@ -1,7 +1,10 @@
 /node_modules
 /public/hot
 /public/storage
-/nodejs/node_modules
+/nestjs/node_modules
+/nestjs/dist
+/nestjs/.env
+/nestjs/package-lock.json
 /storage/*.key
 /vendor
 /.idea
