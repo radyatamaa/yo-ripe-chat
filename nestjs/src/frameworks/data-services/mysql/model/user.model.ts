@@ -15,7 +15,7 @@ export class User {
     password: string;
 
     @Column({ length: 191, name: "socket_id" ,nullable: true})
-    socketId: string;
+    socket_id: string;
 
     @Column({ length: 1, name: "online" })
     online: string;

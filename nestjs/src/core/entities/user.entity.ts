@@ -3,7 +3,7 @@ export class User {
     name: string;
     email: string;
     password: string;
-    socketId?: string;
+    socket_id?: string;
     online: string;
     rememberToken?: string;
     createdAt?: string;

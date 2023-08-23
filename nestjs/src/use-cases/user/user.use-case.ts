@@ -38,7 +38,7 @@ export class UserUseCases {
   ): Promise<User> {
     const user = await this.dataServices.users.getWithFilter({
       where: {
-        socketId: userSocketId
+        socket_id: userSocketId
       }
     });
     if (user) {
