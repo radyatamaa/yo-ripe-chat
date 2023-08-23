@@ -3,10 +3,9 @@ import {
   AppController,
 } from './controllers';
 import { 
-  AppGateway,
   ChatGateway,
 } from './gateway';
-import { WebSocketPreInitMiddleware } from './middlewares/gateway.middleware';
+// import { WebSocketPreInitMiddleware } from './middlewares/gateway.middleware';
 import { DataServicesModule } from './services/data-services/data-services.module';
 import { MessageUseCasesModule } from './use-cases/message/message-use-cases.module';
 import { UserUseCasesModule } from './use-cases/user/user-use-cases.module';
@@ -20,7 +19,7 @@ import { UserUseCasesModule } from './use-cases/user/user-use-cases.module';
   controllers: [
     AppController,
   ],
-  providers: [AppGateway, ChatGateway],
+  providers: [ChatGateway],
 })
 
 export class AppModule {}

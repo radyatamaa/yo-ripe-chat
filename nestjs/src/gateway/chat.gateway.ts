@@ -1,19 +1,23 @@
 import { SubscribeMessage, WebSocketGateway, OnGatewayInit, WebSocketServer, OnGatewayConnection, OnGatewayDisconnect } from '@nestjs/websockets';
 import { Socket, Server } from 'socket.io';
-import { Logger } from '@nestjs/common';
-import { UserUseCases } from '../../src/use-cases/user/user.use-case';
-import { MessageUseCases } from '../../src/use-cases/message/message.use-case';
+import {  Logger } from '@nestjs/common';
+import { UserUseCases } from '../use-cases/user/user.use-case'
+import { MessageUseCases } from '../use-cases/message/message.use-case';
 import * as moment from 'moment';
 import * as path from 'path';
 import * as fs from 'fs';
-import { CreateMessageDto } from '../../src/core/dtos';
+import { CreateMessageDto } from '../core/dtos';
 
-@WebSocketGateway({ namespace: 'chat' , cors: true})
+@WebSocketGateway()
 export class ChatGateway implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {
-
-    private userUseCases: UserUseCases;
-    private messageUseCases: MessageUseCases;
+    // private userUseCases: UserUseCases;
+    // private messageUseCases: MessageUseCases;
     private logger: Logger = new Logger('ChatGateway');
+    constructor(
+        private userUseCases: UserUseCases,
+        private messageUseCases: MessageUseCases
+      ) {}
+      
 	@WebSocketServer() wss: Server;
 
 	afterInit(server: any) {
@@ -21,16 +25,6 @@ export class ChatGateway implements OnGatewayInit, OnGatewayConnection, OnGatewa
 	}
 
 	async handleConnection(client: Socket, ...args: any[]) {
-        const userId = client.handshake.query['id'];
-        const userSocketId = client.id;
-        const response = await this.userUseCases.addSocketId(Number(userId), userSocketId);
-    
-        // if (response && response !== null) {
-        //   next();
-        // } else {
-        //   console.error(`Socket connection failed for user ID ${userId}.`);
-        // }
-
 		this.logger.log(`Client connected: ${client.id}`);
 	}
 

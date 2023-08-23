@@ -3,13 +3,14 @@ import { AppModule } from './app.module';
 import { APP } from './configuration';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { NestExpressApplication } from '@nestjs/platform-express';
-import { join } from 'path';
+import { MyIoAdapter } from './middlewares/gateway.middleware';
 
 async function bootstrap() {
-  // const app = await NestFactory.create(AppModule);
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  app.useStaticAssets(join(__dirname, '..', 'static'));
-  
+
+  // Use the custom IoAdapter
+  app.useWebSocketAdapter(new MyIoAdapter(app));
+
   const config = new DocumentBuilder()
     .setTitle('Yo Ripe Chat')
     .setDescription('Yo Ripe Chat')

@@ -27,7 +27,8 @@ export class UserUseCases {
   ): Promise<User> {
     const user = await this.dataServices.users.get(userId);
     const updateUser = this.userFactoryService.updateUserOnline(user,userSocketId);
-    return this.dataServices.users.update(userId,updateUser);
+    await this.dataServices.users.update(userId,updateUser);
+    return user;
   }
 
   async logoutUser(
