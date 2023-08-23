@@ -20,7 +20,7 @@ import { MysqlDataServices } from './mysql-data-services.service';
         password: MYSQL_CONFIGURATION.pass,
         database: MYSQL_CONFIGURATION.database,
         entities: [User],
-        synchronize: true,
+        synchronize: false,
       }),
   ],
   providers: [

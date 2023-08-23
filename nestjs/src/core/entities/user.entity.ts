@@ -3,9 +3,9 @@ export class User {
     name: string;
     email: string;
     password: string;
-    socketId: string;
+    socketId?: string;
     online: string;
-    rememberToken: string;
-    createdAt: string;
-    updatedAt: string;
+    rememberToken?: string;
+    createdAt?: string;
+    updatedAt?: string;
 }

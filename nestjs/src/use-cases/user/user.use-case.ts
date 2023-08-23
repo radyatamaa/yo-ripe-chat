@@ -26,8 +26,10 @@ export class UserUseCases {
     userSocketId: string,
   ): Promise<User> {
     const user = await this.dataServices.users.get(userId);
-    const updateUser = this.userFactoryService.updateUserOnline(user,userSocketId);
-    await this.dataServices.users.update(userId,updateUser);
+    if (user) {
+      const updateUser = this.userFactoryService.updateUserOnline(user,userSocketId);
+      await this.dataServices.users.update(userId,updateUser);  
+    }
     return user;
   }
 
@@ -39,7 +41,11 @@ export class UserUseCases {
         socketId: userSocketId
       }
     });
-    const updateUser = await this.userFactoryService.updateUserOffline(user,userSocketId);
-    return this.dataServices.users.update(user.id,updateUser);
+    if (user) {
+      const updateUser = await this.userFactoryService.updateUserOffline(user,userSocketId);
+      return this.dataServices.users.update(user.id,updateUser);  
+    }
+
+    return null;
   }
 }

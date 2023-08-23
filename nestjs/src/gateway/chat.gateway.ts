@@ -7,6 +7,7 @@ import * as moment from 'moment';
 import * as path from 'path';
 import * as fs from 'fs';
 import { CreateMessageDto } from '../core/dtos';
+import { join } from 'path';
 
 @WebSocketGateway()
 export class ChatGateway implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {
@@ -110,10 +111,14 @@ export class ChatGateway implements OnGatewayInit, OnGatewayConnection, OnGatewa
     @SubscribeMessage('upload-image')
 	async handleUploadImage(client: Socket, response: any) {
         try { 
+
+            const basePath = join(__dirname, '..', '..');
             let dir = moment().format("D-M-Y")+ "/" + moment().format('x') + "/" + response.fromUserId
+            
+
             await this.messageUseCases.mkdirSyncRecursive(dir);
             let filepath = dir + "/" + response.fileName;
-            var writer = fs.createWriteStream(path.basename('uploads') + "/" + filepath, { encoding: 'base64'});
+            var writer = fs.createWriteStream(basePath + '/' + path.basename('uploads') + "/" + filepath, { encoding: 'base64'});
             writer.write(response.message);
             writer.end();
             writer.on('finish', function () {
