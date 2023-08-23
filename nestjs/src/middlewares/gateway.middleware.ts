@@ -31,8 +31,6 @@ export class MyIoAdapter extends IoAdapter {
         }
   
       }
-
-      console.error(`Socket connection failed for user ID ${userId}.`);
     });
 
     return server;
