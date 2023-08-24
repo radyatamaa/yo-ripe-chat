@@ -1,4 +1,4 @@
-# populix-chatbot-technical-test
+# yo-ripe-chat
 ## Clean Architecture With NestJS
 ## Description
 It's been a while since my last article on [how to implement clean architecture on Node.js applications](https://betterprogramming.pub/node-clean-architecture-deep-dive-ab68e523554b), [git repo](https://github.com/royib/clean-architecture-node).
@@ -71,63 +71,6 @@ will always stay the same. We can change all of the above without changing our
 logic. This is what makes it so easy to test applications built on this
 architecture. Don’t worry if you don’t understand this yet, we will explore it
 step-by-step.
-## Getting Started
-### System Requirement
-- Nodejs 14.17.1
-- Mysql 8.0.24
-- ElasticSearch 7.0.1
-- Docker
-- Postman Desktop
-- Ngrok : https://ngrok.com
-- Telegram API Bot : https://core.telegram.org/bots/api
-- NestJs
-### How To Run This Project
-
-```bash
-#move to directory
-# Clone into YOUR dir
-git clone https://github.com/radyatamaa/populix-chatbot-technical-test.git
-
-#move to project
-cd populix-chatbot-technical-test
-
-# install package
-npm install
-
-# create file .env can copy from .env.sample
-cp .env.sample .env
-
-# setup bot telegram
-- create your bot and get the token from following this https://core.telegram.org/bots/features#botfather
-- put your token bot on .env "TELEGRAM_TOKEN_BOT="
-
-# run the app (1)
-- make sure the .env are everything (MYSQL,ELASTIC_SEARCH_URL,TELEGRAM_TOKEN_BOT) correct , NOTED : for THE_MOVIE_DB_API_TOKEN and THE_MOVIE_DB_API_BASE_URL_IMAGE can using default from .env.sample
-- run MYSQL SERVER and ELASTIC SEARCH 
-- if you were'nt installed Elastic Search and Mysql , can install by docker-compose-local with command 'docker compose -f "docker-compose-local.yml" up -d --build'
-- insert data seeders (Content,Card,Card Type) into Mysql with query , the query on dir file "db/data_content.sql"
-- run "npm start"
-- open "http://localhost:3000/swagger" in browser
-
-# run the app by docker (2)
-- can run docker-compose.yml with the command "docker compose -f "docker-compose.yml" up -d --build"
-- insert data seeders (Content,Card,Card Type) into Mysql with query , the query on dir file "db/data_content.sql"
-- open "http://localhost:3000/swagger" in browser
-
-# connect the app into bot
-- run ngrok with http 3000 and get the url expose
-- set the webhook in telegram api 
-  curl --request POST \
-     --url https://api.telegram.org/bot<TELEGRAM_TOKEN_BOT>/setWebhook?url=<URL-FROM-NGROK-EXPOSED>/api/webhook \
-     --header 'accept: application/json' \
-     --header 'content-type: application/json'
-  noted : also you can set the webhook telegram api by postman can import the file collection "Telegram-Bot-api.postman_collection.json"
-```  
-
-### How To Run Test
-npm run test
-### Record Video Result Test
-https://drive.google.com/file/d/1PqIX-JOWGs-6LOXILWurUzSttC4oOnFC/view?usp=sharing
 ## Authors
 Moh. Radyatama Suryana
 ## Version History
