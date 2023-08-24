@@ -19,7 +19,7 @@ The following are required to function properly.
 2. File send and receive
 3. Online Offline status
 4. Typing indicator
-5. Messages stored in database(MYSQL)
+5. Messages stored in database(MongoDB)
 
 ##### Getting Started
 
@@ -141,8 +141,15 @@ Open http://127.0.0.1:8000 url in multipal browser
 
 **Login at least 2 user in different browser.**
 
-#### After login you can see all users in right sidebar click anyone user and start private chatting.
+### Result
+## welcome
+https://github.com/radyatamaa/yo-ripe-chat/blob/dev/Screenshot%202023-08-24%20073150.png
+## Login
+https://github.com/radyatamaa/yo-ripe-chat/blob/dev/Screenshot%202023-08-24%20073144.png
+## Register 
+https://github.com/radyatamaa/yo-ripe-chat/blob/dev/Screenshot%202023-08-24%20073134.png
+## Conversation Chat
+https://github.com/radyatamaa/yo-ripe-chat/blob/dev/Screenshot%202023-08-24%20073001.png
 
 ### Thats it.
-
 Feel free to contact me if you have any query. (^_^)
