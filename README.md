@@ -78,7 +78,7 @@ php artisan db:seed --class=UserTableSeeder
 
 Go to project directory using **Terminal / CMD**
 
-Open **nodejs** folder
+Open **nestjs** folder
 
 install node dependencies
 
@@ -88,25 +88,32 @@ npm install
 
 **_Step : 6_**
 
-In **nodejs** directory open **config/dev.json** file
+In **nestjs** directory find **_.env.example_** and rename to **_.env_**
 
-change **database, user, password**
+change **database** mysql
 
 below database configuration is same as above.
 
 ```
-"host": "localhost",
-"port": 3306,
-"user": "your db username",
-"password": "your db password",
-"database": "your db name"
+MYSQL_HOST=localhost
+MYSQL_PORT=3306
+MYSQL_DATABASE=laravel_chat
+MYSQL_USER=root
+MYSQL_PASSWORD=
+MYSQL_CHARSET=utf8mb4
+```
+
+change **database** mongoDB
+
+```
+CLEAN_NEST_MONGO_CONNECTION_STRING
 ```
 
 **_Step : 7_**
 
-**Start Node JS Chat Server**
+**Start Nest JS Chat Server**
 
-Go to project directory using **Terminal / CMD** Open **nodejs** folder
+Go to project directory using **Terminal / CMD** Open **nestjs** folder
 
 ```
 export NODE_ENV=dev
