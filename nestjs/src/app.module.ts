@@ -1,4 +1,4 @@
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { MiddlewareConsumer, Module, RequestMethod  } from '@nestjs/common';
 import {
   AppController,
 } from './controllers';
@@ -9,6 +9,7 @@ import {
 import { DataServicesModule } from './services/data-services/data-services.module';
 import { MessageUseCasesModule } from './use-cases/message/message-use-cases.module';
 import { UserUseCasesModule } from './use-cases/user/user-use-cases.module';
+import * as express from 'express';
 
 @Module({
   imports: [
@@ -22,12 +23,10 @@ import { UserUseCasesModule } from './use-cases/user/user-use-cases.module';
   providers: [ChatGateway],
 })
 
-export class AppModule {}
-
-// export class AppModule implements NestModule {
-//   configure(consumer: MiddlewareConsumer) {
-//     consumer
-//       .apply(WebSocketPreInitMiddleware)
-//       .forRoutes('*'); // Apply the middleware to all routes
-//   }
-// }
+export class AppModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(express.static(__dirname + '/uploads'))
+      .forRoutes({ path: '', method: RequestMethod.GET });
+  }
+}
