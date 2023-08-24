@@ -141,14 +141,14 @@ Open http://127.0.0.1:8000 url in multipal browser
 
 **Login at least 2 user in different browser.**
 
-### Result
-## welcome
+## App
+### welcome
 ![](https://github.com/radyatamaa/yo-ripe-chat/blob/dev/Screenshot%202023-08-24%20073150.png)
-## Login
+### Login
 ![](https://github.com/radyatamaa/yo-ripe-chat/blob/dev/Screenshot%202023-08-24%20073144.png)
-## Register 
+### Register 
 ![](https://github.com/radyatamaa/yo-ripe-chat/blob/dev/Screenshot%202023-08-24%20073134.png)
-## Conversation Chat
+### Conversation Chat
 ![](https://github.com/radyatamaa/yo-ripe-chat/blob/dev/Screenshot%202023-08-24%20073001.png)
 
 ### Thats it.
