@@ -1,6 +1,6 @@
 ## yo-ripe-chat
 
-Here I have showing you that how to create realtime private chat application using socket io, Node JS, VueJS, Laravel.
+Here I have showing you that how to create Yo Ripe Chat application using socket io, Node JS, VueJS, Laravel.
 
 ---
 

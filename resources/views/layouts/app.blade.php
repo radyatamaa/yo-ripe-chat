@@ -10,7 +10,7 @@
     <meta name="ws_url" content="{{ env('WS_URL') }}">
     <meta name="user_id" content="{{ Auth::id() }}">
 
-    <title>Realtime Private Chat</title>
+    <title>Yo Ripe Chat</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -34,7 +34,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        Realtime Private Chat
+                        Yo Ripe Chat
                     </a>
                 </div>
 
